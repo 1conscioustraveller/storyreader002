@@ -39,7 +39,7 @@
         p {
             margin-bottom: 2rem;
             position: relative;
-            font-size: 1.1rem;
+            font-size: clamp(1.5rem, 5vw, 3rem); /* responsive scaling */
             line-height: 1.8;
         }
 
@@ -71,7 +71,10 @@
             color: #2c3e50;
             position: relative;
             padding: 0.5rem;
-            font-size: 2rem;
+
+            /* Responsive child-friendly sizing */
+            font-size: clamp(2rem, 8vw, 5rem);
+            line-height: 1.2;
         }
 
         h1::before {
@@ -118,9 +121,7 @@
             background: rgba(0, 115, 190, 0.8); /* subtle hover effect */
         }
 
-
-
-        /* Responsive adjustments */
+        /* Responsive adjustments for very small screens */
         @media (max-width: 600px) {
             body {
                 padding: 1rem;
@@ -131,12 +132,12 @@
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: clamp(1.8rem, 10vw, 4rem);
                 margin-bottom: 1.5rem;
             }
 
             p {
-                font-size: 1.2rem;
+                font-size: clamp(1.2rem, 6vw, 2.5rem);
                 line-height: 1.6;
             }
         }
