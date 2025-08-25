@@ -64,6 +64,7 @@
             color: #2c3e50;
             position: relative;
             padding: 0.5rem;
+            font-size: 2rem;
         }
 
         h1::before {
@@ -76,6 +77,53 @@
             background-color: rgba(255, 255, 255, 0.5);
             z-index: -1;
             border-radius: 5px;
+        }
+
+        /* -------------------------
+           Responsive Adjustments
+        ------------------------- */
+
+        /* Small devices (phones) */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .content {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+
+        /* Medium devices (tablets) */
+        @media (min-width: 601px) and (max-width: 900px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Large screens (desktops wider than 900px) */
+        @media (min-width: 901px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -90,16 +138,14 @@
                 The kite flew high, high, high!</span>
         </p>
         
-        
         <h1>La Cometa Perdida</h1>
         
         <p>
-            <span class="line-veil">Una mañana soleada, Mia corrió al parque. Sostenía su cometa roja brillante.</span>
+            <span class="line-veil">Una mañana soleada, Mia corrió al parque. 
+                Sostenía su cometa roja brillante.</span>
             <span class="line-veil"><span class="break"></span>El viento era fuerte.
                 ¡La cometa voló alto, alto, alto!</span>
         </p>
-        
-    
     </div>
 </body>
 </html>
