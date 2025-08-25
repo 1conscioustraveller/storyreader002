@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Background with Text Veils</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 2rem;
+            /* 5-color gradient background */
+            background: linear-gradient(
+                135deg, 
+                #ff9a9e 0%, 
+                #fad0c4 25%, 
+                #fbc2eb 50%, 
+                #a6c1ee 75%, 
+                #c2e9fb 100%
+            );
+            background-attachment: fixed;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .content {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        p {
+            margin-bottom: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .line-veil {
+            display: block;
+            position: relative;
+        }
+
+        .line-veil::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            right: -10px;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.5); /* 50% opacity white veil */
+            z-index: -1;
+            border-radius: 3px;
+        }
+        
+        .break {
+            display: block;
+            height: 1.2em;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        h1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -15px;
+            right: -15px;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: -1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>The Lost Kite</h1>
+        
+        <p>
+            <span class="line-veil">One sunny morning, Mia ran to the park.
+                She held her bright red kite.</span>
+            <span class="line-veil"><span class="break"></span>The wind was strong.
+                The kite flew high, high, high!</span>
+        </p>
+        
+        
+        <h1>La Cometa Perdida</h1>
+        
+        <p>
+            <span class="line-veil">Una mañana soleada, Mia corrió al parque. Sostenía su cometa roja brillante.</span>
+            <span class="line-veil"><span class="break"></span>El viento era fuerte.
+                ¡La cometa voló alto, alto, alto!</span>
+        </p>
+        
+    
+    </div>
+</body>
+</html>
