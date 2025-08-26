@@ -6,9 +6,8 @@
   <title>Gradient Background with Text Veils</title>
 
   <!-- Google Font: Lexend -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -29,15 +28,15 @@
       align-items: center;
       flex-direction: column;
 
-      font-family: 'Nunito', sans-serif;
+      font-family: 'Nunito', 'Josefin Sans', 'Mulish', sans-serif;
       font-weight: 500;
-      line-height: 0.8;
+      line-height: 1.2;
       color: #333;
     }
 
     /* Dyslexia-friendly font style (toggle) */
     .dyslexia-font {
-      font-family: 'Comic Sans MS', 'Comic Sans', 'Mulish', sans-serif; !important;
+      font-family: 'Comic Sans MS', 'Comic Sans', 'Mulish', sans-serif !important;
     }
 
     .content {
@@ -186,7 +185,7 @@
     function toggleFont() {
       body.classList.toggle("dyslexia-font");
       if (body.classList.contains("dyslexia-font")) {
-        button.textContent = "Mulish Font";
+        button.textContent = "Switch to Default Font";
       } else {
         button.textContent = "Dyslexia-Friendly Font";
       }
