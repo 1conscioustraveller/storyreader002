@@ -1,222 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradient Background with Text Veils</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Background with Text Veils</title>
 
-    <!-- Google Font: Lexend -->
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Font: Lexend -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 2rem;
-            background: linear-gradient(
-                135deg, 
-                #ff9a9e 0%, 
-                #fad0c4 25%, 
-                #fbc2eb 50%, 
-                #a6c1ee 75%, 
-                #c2e9fb 100%
-            );
-            background-attachment: fixed;
-            min-height: 100vh;
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: linear-gradient(
+        135deg, 
+        #ff9a9e 0%, 
+        #fad0c4 25%, 
+        #fbc2eb 50%, 
+        #a6c1ee 75%, 
+        #c2e9fb 100%
+      );
+      background-attachment: fixed;
+      min-height: 100vh;
 
-            display: flex;              /* Flexbox enabled */
-            justify-content: center;    /* Horizontal center */
-            align-items: center;        /* Vertical center */
-            flex-direction: column;     /* Stack children vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
-            font-family: 'Lexend', sans-serif; /* Default font */
-            line-height: 1.2;
-            color: #333;
-        }
+      font-family: 'Lexend', sans-serif;
+      line-height: 1.2;
+      color: #333;
+    }
 
-        /* Dyslexia-friendly font style (toggle) */
-        .dyslexia-font {
-            font-family: 'Comic Sans MS', 'Comic Sans', Arial, sans-serif !important;
-        }
+    /* Dyslexia-friendly font style (toggle) */
+    .dyslexia-font {
+      font-family: 'Comic Sans MS', 'Comic Sans', Arial, sans-serif !important;
+    }
 
-        .content {
-            width: 100%;
-            max-width: 1600px;
-            margin: 0 auto;
-            text-align: center;
-        }
+    .content {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        p {
-            margin-bottom: 1.5rem;
-            position: relative;
-            font-size: clamp(1.0rem, 5vw, 3rem); /* responsive scaling */
-            line-height: 1.3;
-        }
+    p {
+      margin-bottom: 1.5rem;
+      position: relative;
+      font-size: clamp(1rem, 4vw, 2rem);
+      line-height: 1.4;
+    }
 
-        .line-veil {
-            display: block;
-            position: relative;
-        }
+    .line-veil {
+      display: block;
+      position: relative;
+    }
 
-        .line-veil::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -10px;
-            right: -10px;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.2);
-            z-index: -1;
-            border-radius: 3px;
-        }
-        
-        .break {
-            display: block;
-            height: 0.8em;
-        }
+    .line-veil::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -10px;
+      right: -10px;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+      border-radius: 3px;
+    }
+    
+    .break {
+      display: block;
+      height: 0.8em;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #2c3e50;
-            position: relative;
-            padding: 0.5rem;
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #2c3e50;
+      position: relative;
+      padding: 0.5rem;
 
-            /* Responsive child-friendly sizing */
-            font-size: clamp(1.5rem, 8vw, 3rem);
-            line-height: 1.2;
-        }
+      font-size: clamp(1.5rem, 6vw, 3rem);
+      line-height: 1.2;
+    }
 
-        h1::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -15px;
-            right: -15px;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.3);
-            z-index: -1;
-            border-radius: 5px;
-        }
+    h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -15px;
+      right: -15px;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.3);
+      z-index: -1;
+      border-radius: 5px;
+    }
 
-        /* Toggle Button */
-        .font-toggle {
-            display: block;
-            margin: 1rem auto 2rem auto;
-            padding: 0.6rem 1.2rem;
-            font-size: 1rem;
-            border: 3px solid #bda209;
-            border-radius: 8px;
-            background: rgba(200, 0, 0, 0.2);
-            color: #e5e8b7;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    /* Toggle Button */
+    .font-toggle {
+      display: block;
+      margin: 1rem auto 2rem auto;
+      padding: clamp(0.4rem, 2vw, 0.8rem) clamp(0.8rem, 4vw, 1.5rem);
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      border: 3px solid #bda209;
+      border-radius: 8px;
+      background: rgba(200, 0, 0, 0.2);
+      color: #e5e8b7;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .font-toggle:hover {
-            background: rgba(0, 115, 190, 0.8);
-        }
+    .font-toggle:hover {
+      background: rgba(0, 115, 190, 0.8);
+    }
 
-       /* Small devices (phones) */
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
+    /* Small devices (phones) */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
 
-            .content {
-                max-width: 100%;
-            }
+      h1 {
+        font-size: 1.2rem;
+      }
 
-            h1 {
-                font-size: 1.3rem;
-                margin-bottom: 1.5rem;
-            }
+      p {
+        font-size: 0.9rem;
+      }
+    }
 
-            p {
-                font-size: 1rem;
-                line-height: 1.3;
-            }
-            /* Small devices (iPhones) */
-        @media (max-width: 1170px) {
-            body {
-                padding: 1rem;
-            }
+    /* Tablets */
+    @media (min-width: 601px) and (max-width: 1080px) {
+      h1 {
+        font-size: 1.6rem;
+      }
 
-            .content {
-                max-width: 100%;
-            }
+      p {
+        font-size: 1.4rem;
+      }
+    }
 
-            h1 {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
+    /* Large screens (desktops wider than 1080px) */
+    @media (min-width: 1081px) {
+      h1 {
+        font-size: 2rem;
+      }
 
-            p {
-                font-size: 1.5rem;
-                line-height: 1.3;
-            }
-        }
-
-        /* Medium devices (tablets) 2160 x 1620 */
-        @media (min-width: 720px) and (max-width: 1080px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            p {
-                font-size: 2.0rem;
-                line-height: 1.4;
-            }
-        }
-
-        /* Large screens (desktops wider than 900px) */
-        @media (min-width: 901px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 2rem;
-                line-height: 1.5;
-            }
-        }
-    </style>
+      p {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="content">
-        <!-- Font Toggle Button -->
-        <button class="font-toggle" onclick="toggleFont()">Switch to Dyslexia-Friendly Font</button>
+  <div class="content">
+    <!-- Font Toggle Button -->
+    <button class="font-toggle" onclick="toggleFont()">Switch to Dyslexia-Friendly Font</button>
 
-        <h1>The Lost Kite</h1>
-        
-        <p>
-            <span class="line-veil">One sunny morning, Mia ran to the park.
-                She held her bright red kite.</span>
-            <span class="line-veil"><span class="break"></span>The wind was strong.
-                The kite flew high, high, high!</span>
-        </p>
-        <span class="break"></span>
-        <h1>La Cometa Perdida</h1>
-        
-        <p>
-            <span class="line-veil">Una mañana soleada, Mia corrió al parque. 
-                Sostenía su cometa roja brillante.</span>
-            <span class="line-veil"><span class="break"></span>El viento era fuerte.
-                ¡La cometa voló alto, alto, alto!</span>
-        </p>
-    </div>
+    <h1>The Lost Kite</h1>
+    
+    <p>
+      <span class="line-veil">One sunny morning, Mia ran to the park.
+          She held her bright red kite.</span>
+      <span class="line-veil"><span class="break"></span>The wind was strong.
+          The kite flew high, high, high!</span>
+    </p>
+    <span class="break"></span>
+    <h1>La Cometa Perdida</h1>
+    
+    <p>
+      <span class="line-veil">Una mañana soleada, Mia corrió al parque. 
+          Sostenía su cometa roja brillante.</span>
+      <span class="line-veil"><span class="break"></span>El viento era fuerte.
+          ¡La cometa voló alto, alto, alto!</span>
+    </p>
+  </div>
 
-    <script>
-        const body = document.body;
-        const button = document.querySelector(".font-toggle");
+  <script>
+    const body = document.body;
+    const button = document.querySelector(".font-toggle");
 
-        function toggleFont() {
-            body.classList.toggle("dyslexia-font");
-            if (body.classList.contains("dyslexia-font")) {
-                button.textContent = "Switch to Default Font";
-            } else {
-                button.textContent = "Switch to Dyslexia-Friendly Font";
-            }
-        }
-    </script>
+    function toggleFont() {
+      body.classList.toggle("dyslexia-font");
+      if (body.classList.contains("dyslexia-font")) {
+        button.textContent = "Switch to Default Font";
+      } else {
+        button.textContent = "Switch to Dyslexia-Friendly Font";
+      }
+    }
+  </script>
 </body>
 </html>
