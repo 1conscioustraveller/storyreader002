@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gradient Background with Text Veils</title>
 
-  <!-- Google Font: Lexend -->
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -28,18 +28,20 @@
       align-items: center;
       flex-direction: column;
 
-      font-family: 'Nunito', 'Josefin Sans', 'Mulish', sans-serif;
+      font-family: 'Mulish', sans-serif; /* default */
       font-weight: 600;
       line-height: 1;
       color: #333;
     }
 
-    /* Dyslexia-friendly font style (toggle) */
+    /* Dyslexia-friendly font style */
     .dyslexia-font {
-      font-family: 'Comic Sans MS', 'Comic Sans', 'Mulish', sans-serif !important;
+      font-family: 'Comic Sans MS', 'Comic Sans', sans-serif !important;
     }
+
+    /* Alternative font */
     .alt-font {
-      font-family: 'Josefin Sans', sans-serif; /* or whichever you prefer */
+      font-family: 'Josefin Sans', sans-serif !important;
     }
 
     .content {
@@ -119,60 +121,37 @@
       background: rgba(0, 115, 190, 0.8);
     }
 
-    /* Small devices (phones) */
+    /* Responsive adjustments */
     @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 2rem;
-      }
+      body { padding: 1rem; }
+      h1, p { font-size: 2rem; }
     }
 
-    /* Tablets */
     @media (min-width: 601px) and (max-width: 1080px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      p {
-        font-size: 1.8rem;
-      }
+      h1, p { font-size: 1.8rem; }
     }
 
-    /* Large screens (desktops wider than 1080px) */
     @media (min-width: 1081px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      p {
-        font-size: 2.5rem;
-      }
+      h1, p { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
   <div class="content">
     <!-- Font Toggle Button -->
-    <button class="font-toggle" onclick="toggleFont()">Dyslexia-Friendly Font</button>
+    <button class="font-toggle" onclick="toggleFont()">Switch to Dyslexia-Friendly Font</button>
 
     <h1>The Lost Kite</h1>
-    
     <p>
       <span class="line-veil">One sunny morning, Mia ran to the park.
           She held her bright red kite.</span>
       <span class="line-veil"><span class="break"></span>The wind was strong.
           The kite flew high, high, high!</span>
     </p>
+
     <span class="break"></span>
+
     <h1>La Cometa Perdida</h1>
-    
     <p>
       <span class="line-veil">Una mañana soleada, Mia corrió al parque. 
           Sostenía su cometa roja brillante.</span>
@@ -185,12 +164,30 @@
     const body = document.body;
     const button = document.querySelector(".font-toggle");
 
+    // Available font states
+    const fontClasses = ["", "dyslexia-font", "alt-font"];
+    let currentFont = 0;
+
     function toggleFont() {
-      body.classList.toggle("dyslexia-font");
-      if (body.classList.contains("dyslexia-font")) {
-        button.textContent = "Switch to Default Font";
+      // remove previous class
+      body.classList.remove(fontClasses[currentFont]);
+
+      // advance to next font
+      currentFont = (currentFont + 1) % fontClasses.length;
+
+      // apply class if not default
+      if (fontClasses[currentFont]) {
+        body.classList.add(fontClasses[currentFont]);
+      }
+
+      // update button label for NEXT font
+      const nextFont = fontClasses[(currentFont + 1) % fontClasses.length];
+      if (nextFont === "dyslexia-font") {
+        button.textContent = "Switch to Dyslexia-Friendly Font";
+      } else if (nextFont === "alt-font") {
+        button.textContent = "Switch to Alternative Font";
       } else {
-        button.textContent = "Dyslexia-Friendly Font";
+        button.textContent = "Switch to Default Font";
       }
     }
   </script>
